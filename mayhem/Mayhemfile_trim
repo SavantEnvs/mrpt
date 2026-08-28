@@ -1,0 +1,10 @@
+project: savantenvs/mrpt
+target: trim
+# Ported from the retired mayhemheroes integration (mayhem/Mayhemfile_trim there): an in-process
+# libFuzzer harness over mrpt::system::trim() (mayhem/fuzz_trim.cpp).
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/trim/testsuite
+cmds:
+  - cmd: /mayhem/trim
+    libfuzzer: true

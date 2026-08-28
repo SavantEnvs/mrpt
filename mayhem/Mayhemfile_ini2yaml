@@ -1,0 +1,11 @@
+project: savantenvs/mrpt
+target: ini2yaml
+# Ported from the retired mayhemheroes integration (mayhem/Mayhemfile_mrpt / root Mayhemfile
+# there, target "ini2yaml"). File-input CLI: apps/mrpt_apps_cli/mrpt-ini2yaml/ini2yaml_main.cpp,
+# built sanitized as /mayhem/ini2yaml — it already takes one input-file argument and runs once,
+# so this sanitized binary is its own standalone reproducer (no separate libFuzzer driver).
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/ini2yaml/testsuite
+cmds:
+  - cmd: /mayhem/ini2yaml @@
